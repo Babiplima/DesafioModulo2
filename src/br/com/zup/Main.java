@@ -30,9 +30,7 @@ public class Main {
             // Menu de opções para usuário
 
             System.out.println("Digite 1 para cadastro ");
-            System.out.println("Digite 2 para exibir listas de cadastros ");
-            System.out.println("Digite 3 para excluir um cadastro pelo CPF ");
-            System.out.println("Digite 4 caso deseje sair do programa ");
+
 
             //Lendo a opção escolhida pelo usuário
 
@@ -53,18 +51,11 @@ public class Main {
                 String cpf = leitor.nextLine();
                 break;
             }
-            //Apresentando lista de funcionários cadastrados
 
-            else if (opcEscolhida2 == 2) {
-
-                for (String chaveDoisFuncionarios : funcionarios.keySet()) {
-                    System.out.println("Cadastro: " + funcionarios.get(chaveDoisFuncionarios) + " CPF: " + chaveFuncionarios);
                 }
             }
 
         }
-    }
-}
 
 
 
