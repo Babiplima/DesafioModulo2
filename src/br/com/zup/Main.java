@@ -19,7 +19,7 @@ public class Main {
         Scanner leitor = new Scanner(System.in);
         Scanner leitor1 = new Scanner(System.in);
 
-        int opcEscolhida = 1;
+
         int opcao;
         String nome1 ="";
         String telefone1 = "";
