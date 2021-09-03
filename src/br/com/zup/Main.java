@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         //Crie um programa para gerenciar uma lista de funcionários de uma empresa,
         // cada funcionário tem nome, telefone, email e CPF.
@@ -17,52 +17,65 @@ public class Main {
 
 
         Scanner leitor = new Scanner(System.in);
+        Scanner leitor1 = new Scanner(System.in);
+
+        int opcEscolhida = 1;
+        int opcao;
+        String nome1 ="";
+        String telefone1 = "";
+        String email1 = "";
+        String cpf = "";
         Map<String, String> funcionarios = new HashMap<String, String>();
+        boolean chave = true;
 
-        boolean chaveFuncionarios = true;
 
-        System.out.println( "*** Seja bem vindo ao cadastro de funcionários ***");
-        int opcEscolhida = 0;
-        int opcEscolhida2 = 0;
+        System.out.println("*** Seja bem vindo ao cadastro de funcionários ***");
 
-        while (chaveFuncionarios == true) {
+        while (chave == true) {
 
             // Menu de opções para usuário
 
             System.out.println("Digite 1 para cadastro ");
+            System.out.println("Digite 2 para exibir listas de cadastros ");
+            System.out.println("Digite 3 para excluir um cadastro pelo CPF ");
+            System.out.println("Digite 4 caso deseje sair do programa ");
+
 
 
             //Lendo a opção escolhida pelo usuário
 
-            opcEscolhida = leitor.nextInt();
-            leitor.nextLine();
+            opcao=leitor.nextInt();
 
-            //Entrega Mínima: O sistema permite, via terminal,
-            // inserir pelo menos 1 funcionário em uma lista e retornar o mesmo na tela.
-
-            if (opcEscolhida == 1) {
-                System.out.println("Digite o nome completo do funcionário ");
-                String nome = leitor.nextLine();
-                System.out.println("Digite o telefone do funcionário com código de área ");
-                String telefone = leitor.nextLine();
-                System.out.println("Digite o email do funcionário ");
-                String email = leitor.nextLine();
-                System.out.println("Digite o CPF ");
-                String cpf = leitor.nextLine();
-                break;
-            }
+            switch (opcao) {
+                case 1: {
+                    System.out.println("Digite o nome completo do funcionário \n");
+                    nome1 = leitor1.nextLine();
+                    System.out.println("Digite o telefone do funcionário com código de área ");
+                    telefone1 = leitor1.nextLine();
+                    System.out.println("Digite o email do funcionário ");
+                    email1 = leitor1.nextLine();
+                    System.out.println("Digite o CPF ");
+                    cpf = leitor1.nextLine();
+                    funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1);
+                    System.out.println("Usuário cadastrado com sucesso. ");
+                    break;
+                }
+                //Mostrar lista de funcionários
+                case 2: {
+                   for(String chaveFuncionarios:funcionarios.keySet()) {
+                       System.out.println("Dados do funcionario " + funcionarios.get(chaveFuncionarios) + " CPF " + chaveFuncionarios);
+                   }
+                    break;
+                }
+                default: {
+                    chave = false;
 
                 }
             }
 
         }
 
-
-
-
-
-
-
-
+    }
+}
 
 
