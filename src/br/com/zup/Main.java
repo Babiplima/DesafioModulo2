@@ -21,8 +21,9 @@ public class Main {
 
         boolean chaveFuncionarios = true;
 
-        // *** Seja bem vindo ao cadastro de funcionários ***
+        System.out.println( "*** Seja bem vindo ao cadastro de funcionários ***");
         int opcEscolhida = 0;
+        int opcEscolhida2 = 0;
 
         while (chaveFuncionarios == true) {
 
@@ -54,7 +55,7 @@ public class Main {
             }
             //Apresentando lista de funcionários cadastrados
 
-            if (opcEscolhida == 2) {
+            else if (opcEscolhida2 == 2) {
 
                 for (String chaveDoisFuncionarios : funcionarios.keySet()) {
                     System.out.println("Cadastro: " + funcionarios.get(chaveDoisFuncionarios) + " CPF: " + chaveFuncionarios);
