@@ -18,10 +18,11 @@ public class Main {
 
         Scanner leitor = new Scanner(System.in);
         Scanner leitor1 = new Scanner(System.in);
+        Scanner leitor2 = new Scanner(System.in);
 
 
         int opcao;
-        String nome1 ="";
+        String nome1 = "";
         String telefone1 = "";
         String email1 = "";
         String cpf = "";
@@ -40,15 +41,15 @@ public class Main {
             System.out.println("Digite 3 para excluir um cadastro pelo CPF ");
             System.out.println("Digite 4 caso deseje sair do programa ");
 
-
-
             //Lendo a opção escolhida pelo usuário
 
-            opcao=leitor.nextInt();
+            opcao = leitor.nextInt();
+
+            //Entrando com dados dos funcionários
 
             switch (opcao) {
                 case 1: {
-                    System.out.println("Digite o nome completo do funcionário \n");
+                    System.out.println("Digite o nome completo do funcionário ");
                     nome1 = leitor1.nextLine();
                     System.out.println("Digite o telefone do funcionário com código de área ");
                     telefone1 = leitor1.nextLine();
@@ -56,26 +57,60 @@ public class Main {
                     email1 = leitor1.nextLine();
                     System.out.println("Digite o CPF ");
                     cpf = leitor1.nextLine();
-                    funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1);
-                    System.out.println("Usuário cadastrado com sucesso. ");
-                    break;
+                    if (funcionarios.size() != 0) {
+                        for (String verificarChave : funcionarios.keySet()) {
+                            if (verificarChave.equals(cpf)) {
+                                System.out.println("Este funcionário já esta cadastrado. ");
+                            } else {
+                                funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1);
+                                System.out.println("Usuário cadastrado com sucesso. ");
+
+                            }
+                        }
+                    }else{
+                        funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1);
+                        System.out.println("Usuário cadastrado com sucesso. ");
+                    }
                 }
+                break;
                 //Mostrar lista de funcionários
+
                 case 2: {
-                   for(String chaveFuncionarios:funcionarios.keySet()) {
-                       System.out.println("Dados do funcionario " + funcionarios.get(chaveFuncionarios) + " CPF " + chaveFuncionarios);
-                   }
-                    break;
+                    for (String chaveFuncionarios : funcionarios.keySet()) {
+                        System.out.println("Dados do funcionario " + funcionarios.get(chaveFuncionarios) + " CPF " + chaveFuncionarios);
+                    }
                 }
+                break;
+
+                case 3: {
+                    System.out.println("Por favor, digite o cpf a ser deletado: ");
+                    String cpfExcluido = "";
+                    String cpfASerExcluido = leitor2.nextLine();
+                    for (String cpfFuncionario : funcionarios.keySet()) {
+
+                        if (cpfFuncionario.equals(cpfASerExcluido)) {
+
+                            System.out.println("CPF excluido com sucesso. ");
+                            cpfExcluido = cpfASerExcluido;
+                        } else {
+                            System.out.println("CPF não cadastrado");
+                            break;
+                        }
+
+                    }
+                }
+
                 default: {
                     chave = false;
-
                 }
             }
-
         }
-
     }
 }
+
+
+
+
+
 
 
