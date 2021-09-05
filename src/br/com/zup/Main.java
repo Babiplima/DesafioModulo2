@@ -82,8 +82,10 @@ public class Main {
                 }
                 break;
 
+                //Excluindo cadastro
+
                 case 3: {
-                    System.out.println("Por favor, digite o cpf a ser deletado: ");
+                    System.out.println("Por favor, digite o cadastro a ser excluído1: ");
                     String cpfExcluido = "";
                     String cpfASerExcluido = leitor2.nextLine();
                     for (String cpfFuncionario : funcionarios.keySet()) {
