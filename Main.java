@@ -57,20 +57,35 @@ public class Main {
                     email1 = leitor1.nextLine();
                     System.out.println("Digite o CPF ");
                     cpf = leitor1.nextLine();
-                    funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1,);
-                    System.out.println("Usuário cadastrado com sucesso. ");
-                    break;
+                    if (funcionarios.size() != 0) {
+                        for (String verificarChave : funcionarios.keySet()) {
+                            if (verificarChave.equals(cpf)) {
+                                System.out.println("Este funcionário já esta cadastrado. ");
+                            } else {
+                                funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1);
+                                System.out.println("Usuário cadastrado com sucesso. ");
+
+                            }
+                        }
+                    }else{
+                        funcionarios.put(cpf, "Nome: " + nome1 + " Telefone: " + telefone1);
+                        System.out.println("Usuário cadastrado com sucesso. ");
+                    }
                 }
+                break;
                 //Mostrar lista de funcionários
 
                 case 2: {
                     for (String chaveFuncionarios : funcionarios.keySet()) {
                         System.out.println("Dados do funcionario " + funcionarios.get(chaveFuncionarios) + " CPF " + chaveFuncionarios);
                     }
-                    break;
                 }
+                break;
+
+                //Excluindo cadastro
+
                 case 3: {
-                    System.out.println("Por favor, digite o cpf a ser deletado: ");
+                    System.out.println("Por favor, digite o cadastro a ser excluído1: ");
                     String cpfExcluido = "";
                     String cpfASerExcluido = leitor2.nextLine();
                     for (String cpfFuncionario : funcionarios.keySet()) {
@@ -86,13 +101,18 @@ public class Main {
 
                     }
                 }
-                         default: {
-                         chave = false;
-                }
 
+                default: {
+                    chave = false;
+                }
             }
         }
     }
 }
+
+
+
+
+
 
 
